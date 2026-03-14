@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DERMALYSSE — Consultoría en Dermatología y Estética</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════
+       DERMALYSSE — Minimalist Rose Theme
+       ═══════════════════════════════════════ */
+
+    :root {
+      --rosa-bold: #f74780;
+      --rosa-main: #fc6998;
+      --rosa-mid: #fa8fb1;
+      --rosa-soft: #ffc1d5;
+      --rosa-pale: #ffe4ec;
+      --rosa-ghost: #fff5f8;
+      --white: #ffffff;
+      --dark: #2a1a1f;
+      --gray: #6b5a60;
+      --light-gray: #9a8a90;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 30px rgba(252,105,152,0.08);
+      padding: 0.7rem 2rem;
+    }
+
+    .nav-logo {
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    nav.scrolled .nav-logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--dark);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--rosa-main);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled .hamburger span {
+      background: var(--dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--rosa-main) 0%, var(--rosa-bold) 50%, var(--rosa-mid) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(to top, var(--white), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .hero-logo-main {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.3);
+      margin-bottom: 2rem;
+      animation: softPulse 4s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--white);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      font-weight: 200;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 3rem;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: all 0.4s ease;
+      border-radius: 50px;
+    }
+
+    .hero-cta:hover {
+      background: var(--white);
+      color: var(--rosa-main);
+      border-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--dark);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title .line {
+      width: 50px;
+      height: 1.5px;
+      background: var(--rosa-main);
+      margin: 0 auto;
+    }
+
+    /* ── CURSOS ── */
+    .cursos {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .cursos-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .curso-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      group: curso;
+    }
+
+    .curso-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+
+    .curso-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .curso-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(252,105,152,0.85) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .curso-card:hover .curso-overlay {
+      opacity: 1;
+    }
+
+    .curso-overlay span {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── GALERÍA ── */
+    .galeria {
+      padding: 6rem 2rem;
+      background: var(--rosa-ghost);
+    }
+
+    .carousel-container {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .carousel-track {
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(252,105,152,0.12);
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--rosa-soft);
+      background: var(--white);
+      color: var(--rosa-main);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background: var(--rosa-main);
+      color: var(--white);
+      border-color: var(--rosa-main);
+      transform: scale(1.08);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--rosa-soft);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--rosa-main);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* ── CONTACTO ── */
+    .contacto {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .contacto-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contacto-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    .contacto-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contacto-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      transition: all 0.4s ease;
+      border: 1.5px solid var(--rosa-soft);
+      color: var(--rosa-main);
+      background: var(--white);
+    }
+
+    .contacto-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .contacto-btn:hover {
+      background: var(--rosa-main);
+      color: var(--white);
+      border-color: var(--rosa-main);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(252,105,152,0.2);
+    }
+
+    .contacto-btn:hover svg path,
+    .contacto-btn:hover svg circle {
+      fill: var(--white);
+    }
+
+    .contacto-btn--whatsapp:hover {
+      background: #25D366;
+      border-color: #25D366;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, var(--rosa-main), var(--rosa-bold));
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+
+    footer a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.2); }
+      50% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: right 0.4s ease;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .nav-links a {
+        color: var(--dark) !important;
+        font-size: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .hero h1 {
+        letter-spacing: 0.1em;
+      }
+
+      .cursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .curso-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(252,105,152,0.75) 0%, transparent 50%);
+      }
+
+      .contacto-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contacto-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cursos-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      .curso-card {
+        border-radius: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="navbar">
+    <img src="img/logo.jpg" alt="Dermalysse" class="nav-logo">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+      <li><a href="#cursos" onclick="closeMenu()">Cursos</a></li>
+      <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+      <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <img src="img/logo.jpg" alt="Dermalysse Logo" class="hero-logo-main">
+      <h1>DERMALYSSE</h1>
+      <p class="hero-tagline">Consultoría en Dermatología & Estética</p>
+      <a href="#cursos" class="hero-cta">Descubre Nuestros Cursos</a>
+    </div>
+  </section>
+
+  <!-- ═══ CURSOS ═══ -->
+  <section class="cursos" id="cursos">
+    <div class="section-title reveal">
+      <h2>Nuestros Cursos</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cursos-grid">
+      <div class="curso-card reveal">
+        <img src="img/cursos/cicatrices.jpg" alt="Cicatrices" loading="lazy">
+        <div class="curso-overlay"><span>Cicatrices</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/quirurgico.jpg" alt="Quirúrgico" loading="lazy">
+        <div class="curso-overlay"><span>Quirúrgico</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/remodelacion.jpg" alt="Remodelación" loading="lazy">
+        <div class="curso-overlay"><span>Remodelación</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/maquillaje.jpg" alt="Maquillaje" loading="lazy">
+        <div class="curso-overlay"><span>Maquillaje</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/linfodrenaje.jpg" alt="Linfodrenaje" loading="lazy">
+        <div class="curso-overlay"><span>Linfodrenaje</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/cosmetica-natural.jpg" alt="Cosmética Natural" loading="lazy">
+        <div class="curso-overlay"><span>Cosmética Natural</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/cosmetologia.jpg" alt="Cosmetología" loading="lazy">
+        <div class="curso-overlay"><span>Cosmetología</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/eczema.jpg" alt="Eczema" loading="lazy">
+        <div class="curso-overlay"><span>Eczema</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/hidrafacial.jpg" alt="Hidrafacial" loading="lazy">
+        <div class="curso-overlay"><span>Hidrafacial</span></div>
+      </div>
+      <div class="curso-card reveal">
+        <img src="img/cursos/manchas.jpg" alt="Manchas" loading="lazy">
+        <div class="curso-overlay"><span>Manchas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALERÍA ═══ -->
+  <section class="galeria" id="galeria">
+    <div class="section-title reveal">
+      <h2>Galería</h2>
+      <div class="line"></div>
+    </div>
+    <div class="carousel-container reveal">
+      <div class="carousel-track">
+        <div class="carousel-inner" id="carouselInner">
+          <div class="carousel-slide"><img src="img/galeria/foto1.jpg" alt="Galería 1"></div>
+          <div class="carousel-slide"><img src="img/galeria/foto2.jpg" alt="Galería 2"></div>
+          <div class="carousel-slide"><img src="img/galeria/foto3.jpg" alt="Galería 3"></div>
+          <div class="carousel-slide"><img src="img/galeria/foto4.jpg" alt="Galería 4"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Anterior">&#8592;</button>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(2)"></button>
+          <button class="carousel-dot" onclick="goToSlide(3)"></button>
+        </div>
+        <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Siguiente">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACTO ═══ -->
+  <section class="contacto" id="contacto">
+    <div class="section-title reveal">
+      <h2>Contacto</h2>
+      <div class="line"></div>
+    </div>
+    <div class="contacto-wrapper reveal">
+      <p class="contacto-text">
+        "Tu piel merece la mejor atención.<br>Escríbenos y comienza tu transformación."
+      </p>
+      <div class="contacto-links">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5212224718727?text=Hola%20Dermalysse%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n" target="_blank" class="contacto-btn contacto-btn--whatsapp">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--rosa-main)"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.11-1.14l-.29-.174-3.01.79.8-2.93-.19-.3A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z" fill="var(--rosa-main)"/></svg>
+          WhatsApp
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/dermalysseconsulta" target="_blank" class="contacto-btn">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--rosa-main)" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="var(--rosa-main)" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--rosa-main)"/></svg>
+          Instagram
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=61581624870383" target="_blank" class="contacto-btn">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="var(--rosa-main)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <p>&copy; 2025 DERMALYSSE — Todos los derechos reservados · Diseñado por <a href="#">TEC CAPITAL</a></p>
+  </footer>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    // ── Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Mobile menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('active');
+    }
+
+    // ── Carousel
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlay;
+
+    function updateCarousel() {
+      document.getElementById('carouselInner').style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function moveCarousel(dir) {
+      currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoPlay();
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlay);
+      autoPlay = setInterval(() => moveCarousel(1), 4500);
+    }
+
+    resetAutoPlay();
+
+    // ── Touch/swipe support
+    let touchStartX = 0;
+    const track = document.querySelector('.carousel-track');
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
+    });
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

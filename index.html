@@ -630,6 +630,295 @@
       border-color: #25D366;
     }
 
+    /* ── CLUB DE MIEMBROS ── */
+    .club-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(165deg, var(--rosa-ghost) 0%, var(--white) 40%, var(--rosa-pale) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .club-section::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247,71,128,.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .club-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .club-info {
+      position: relative;
+      z-index: 1;
+    }
+
+    .club-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(247,71,128,.1);
+      color: var(--rosa-bold);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .5rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+
+    .club-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .club-info h2 span {
+      background: linear-gradient(135deg, var(--rosa-bold), var(--rosa-main));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+    .club-info > p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .club-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .club-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .75rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,.7);
+      backdrop-filter: blur(6px);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .club-feat:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(247,71,128,.1);
+    }
+
+    .club-feat-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--rosa-soft), var(--rosa-pale));
+      display: grid;
+      place-items: center;
+    }
+
+    .club-feat-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--rosa-bold);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .club-feat span {
+      font-size: .88rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    .club-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .club-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: 1rem 2.2rem;
+      background: linear-gradient(135deg, var(--rosa-bold), var(--rosa-main));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all .4s ease;
+      box-shadow: 0 8px 25px rgba(247,71,128,.3);
+    }
+
+    .club-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(247,71,128,.4);
+    }
+
+    .club-btn-primary svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2;
+    }
+
+    .club-price-hint {
+      font-size: .85rem;
+      color: var(--light-gray);
+    }
+
+    .club-price-hint strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .club-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .club-card-preview {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(42,26,31,.1);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .club-card-preview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--rosa-bold), var(--rosa-main), var(--rosa-soft));
+    }
+
+    .club-card-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .club-card-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin-bottom: .75rem;
+    }
+
+    .club-card-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .club-card-header p {
+      font-size: .8rem;
+      color: var(--light-gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .club-card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .club-card-stat {
+      text-align: center;
+      padding: .75rem .5rem;
+      background: var(--rosa-ghost);
+      border-radius: 12px;
+    }
+
+    .club-card-stat strong {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--rosa-bold);
+    }
+
+    .club-card-stat span {
+      font-size: .7rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .club-card-items {
+      list-style: none;
+    }
+
+    .club-card-items li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--rosa-pale);
+      font-size: .85rem;
+      color: var(--gray);
+    }
+
+    .club-card-items li:last-child {
+      border-bottom: none;
+    }
+
+    .club-card-items li svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--rosa-main);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .club-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .club-info h2 { font-size: 2.1rem; }
+      .club-features { grid-template-columns: 1fr; }
+      .club-actions { justify-content: center; }
+      .club-visual { order: -1; }
+      .club-card-preview { max-width: 340px; }
+    }
+
     /* ── FOOTER ── */
     footer {
       background: linear-gradient(135deg, var(--rosa-main), var(--rosa-bold));
@@ -757,6 +1046,7 @@
       <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
       <li><a href="#cursos" onclick="closeMenu()">Cursos</a></li>
       <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+      <li><a href="#club" onclick="closeMenu()">Club</a></li>
       <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -861,6 +1151,66 @@
           <button class="carousel-dot" onclick="goToSlide(3)"></button>
         </div>
         <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Siguiente">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLUB DE MIEMBROS ═══ -->
+  <section class="club-section" id="club">
+    <div class="club-wrapper">
+      <div class="club-info reveal">
+        <div class="club-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Exclusivo para miembros
+        </div>
+        <h2>Únete al <span>Club Dermalysse</span></h2>
+        <p>Accede a cursos grabados, webinars en vivo, material descargable, certificados con QR verificable y una comunidad de profesionales en dermatología y estética.</p>
+        <div class="club-features">
+          <div class="club-feat">
+            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+            <span>Cursos grabados 24/7</span>
+          </div>
+          <div class="club-feat">
+            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <span>Webinars en vivo</span>
+          </div>
+          <div class="club-feat">
+            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <span>Material PDF descargable</span>
+          </div>
+          <div class="club-feat">
+            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <span>Certificados con QR</span>
+          </div>
+        </div>
+        <div class="club-actions">
+          <a href="https://club.dermalyssemx.com" target="_blank" class="club-btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Entrar al Club
+          </a>
+          <span class="club-price-hint">Desde <strong>$200 MXN</strong>/mes</span>
+        </div>
+      </div>
+      <div class="club-visual reveal">
+        <div class="club-card-preview">
+          <div class="club-card-header">
+            <img src="img/logo.jpg" alt="Dermalysse" class="club-card-logo">
+            <h3>Club Dermalysse</h3>
+            <p>Membresía Premium</p>
+          </div>
+          <div class="club-card-stats">
+            <div class="club-card-stat"><strong>10+</strong><span>Cursos</span></div>
+            <div class="club-card-stat"><strong>En vivo</strong><span>Webinars</span></div>
+            <div class="club-card-stat"><strong>PDF</strong><span>Material</span></div>
+          </div>
+          <ul class="club-card-items">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Acceso ilimitado a todos los cursos</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Certificados con valor curricular</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Foro exclusivo de profesionales</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Herramientas clínicas interactivas</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>20% descuento en consultas</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

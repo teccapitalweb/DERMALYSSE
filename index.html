@@ -632,8 +632,16 @@
 
     /* ── CLUB DE MIEMBROS ── */
     .club-section {
+      --club-dark: #2e5f7a;
+      --club-main: #5a96b5;
+      --club-light: #7db4cf;
+      --club-pale: #d4e8f2;
+      --club-ghost: #edf5fa;
+      --club-cream: #fffdf2;
+      --club-cream-mid: #f5edd4;
+      --club-gold: #c9a84c;
       padding: 6rem 2rem;
-      background: linear-gradient(165deg, var(--rosa-ghost) 0%, var(--white) 40%, var(--rosa-pale) 100%);
+      background: linear-gradient(165deg, var(--club-cream) 0%, #fff 40%, var(--club-ghost) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -646,7 +654,7 @@
       width: 320px;
       height: 320px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(247,71,128,.08), transparent 70%);
+      background: radial-gradient(circle, rgba(46,95,122,.08), transparent 70%);
       pointer-events: none;
     }
 
@@ -668,8 +676,8 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(247,71,128,.1);
-      color: var(--rosa-bold);
+      background: rgba(46,95,122,.1);
+      color: var(--club-dark);
       font-size: .75rem;
       font-weight: 600;
       letter-spacing: 2px;
@@ -689,7 +697,7 @@
     }
 
     .club-info h2 span {
-      background: linear-gradient(135deg, var(--rosa-bold), var(--rosa-main));
+      background: linear-gradient(135deg, var(--club-dark), var(--club-main));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -723,7 +731,7 @@
 
     .club-feat:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(247,71,128,.1);
+      box-shadow: 0 6px 20px rgba(46,95,122,.1);
     }
 
     .club-feat-icon {
@@ -731,7 +739,7 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--rosa-soft), var(--rosa-pale));
+      background: linear-gradient(135deg, var(--club-pale), var(--club-ghost));
       display: grid;
       place-items: center;
     }
@@ -739,7 +747,7 @@
     .club-feat-icon svg {
       width: 18px;
       height: 18px;
-      stroke: var(--rosa-bold);
+      stroke: var(--club-dark);
       fill: none;
       stroke-width: 1.8;
     }
@@ -763,7 +771,7 @@
       align-items: center;
       gap: .6rem;
       padding: 1rem 2.2rem;
-      background: linear-gradient(135deg, var(--rosa-bold), var(--rosa-main));
+      background: linear-gradient(135deg, var(--club-dark), var(--club-main));
       color: white;
       border: none;
       border-radius: 50px;
@@ -771,12 +779,12 @@
       font-weight: 500;
       text-decoration: none;
       transition: all .4s ease;
-      box-shadow: 0 8px 25px rgba(247,71,128,.3);
+      box-shadow: 0 8px 25px rgba(46,95,122,.3);
     }
 
     .club-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(247,71,128,.4);
+      box-shadow: 0 12px 35px rgba(46,95,122,.4);
     }
 
     .club-btn-primary svg {
@@ -805,7 +813,7 @@
     }
 
     .club-card-preview {
-      background: var(--white);
+      background: var(--club-cream);
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(42,26,31,.1);
       padding: 2.5rem 2rem;
@@ -822,7 +830,7 @@
       left: 0;
       right: 0;
       height: 5px;
-      background: linear-gradient(90deg, var(--rosa-bold), var(--rosa-main), var(--rosa-soft));
+      background: linear-gradient(90deg, var(--club-dark), var(--club-main), var(--club-light));
     }
 
     .club-card-header {
@@ -846,9 +854,10 @@
 
     .club-card-header p {
       font-size: .8rem;
-      color: var(--light-gray);
+      color: var(--club-gold);
       letter-spacing: 1px;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .club-card-stats {
@@ -861,7 +870,7 @@
     .club-card-stat {
       text-align: center;
       padding: .75rem .5rem;
-      background: var(--rosa-ghost);
+      background: rgba(46,95,122,.06);
       border-radius: 12px;
     }
 
@@ -869,7 +878,7 @@
       display: block;
       font-size: 1.3rem;
       font-weight: 600;
-      color: var(--rosa-bold);
+      color: var(--club-dark);
     }
 
     .club-card-stat span {
@@ -888,7 +897,7 @@
       align-items: center;
       gap: .6rem;
       padding: .6rem 0;
-      border-bottom: 1px solid var(--rosa-pale);
+      border-bottom: 1px solid var(--club-pale);
       font-size: .85rem;
       color: var(--gray);
     }
@@ -900,7 +909,7 @@
     .club-card-items li svg {
       width: 16px;
       height: 16px;
-      stroke: var(--rosa-main);
+      stroke: var(--club-main);
       fill: none;
       stroke-width: 2;
       flex-shrink: 0;

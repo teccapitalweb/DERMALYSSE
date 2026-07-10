@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmetología para Hombres · Dermalysse</title>
+<meta name="description" content="Cuidado de la piel masculina con la Cosm. Mary Angélica Caballero Cebada. Clase muestra gratis, inscripción $450 MXN, certificado digital con QR.">
+<meta property="og:title" content="Cosmetología para Hombres — Dermalysse">
+<meta property="og:description" content="Ve la clase muestra gratis. Inscríbete por $450 MXN (precio de lanzamiento) y desbloquea las 3 clases completas al instante.">
+<meta property="og:image" content="img/cursos/flyer-cosmetologia-hombres.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/logo-dermalysse.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema-base:#f9f7f2; --crema-surface:#ffffff; --crema-elevated:#eef2f5;
+    --cafe-deep:#1b2b38; --cafe-mid:#4d6270; --cafe-soft:#8ba0b0; --cafe-line:#e2e7ea;
+    --azul-dark:#2e5a7c; --azul-main:#3f7195; --azul-pale:#e9f0f4;
+    --oro:#a9812f; --oro-bright:#c99f42; --oro-pale:#f7f0dd;
+    --shadow-sm:0 2px 10px rgba(20,40,55,.08); --shadow-md:0 12px 40px rgba(20,40,55,.13); --shadow-lg:0 30px 70px rgba(10,20,30,.24);
+    --radius-sm:8px; --radius:14px; --radius-lg:18px;
+    --font-display:'Cormorant Garamond', Georgia, serif;
+    --font-body:'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--crema-base);color:var(--cafe-deep);-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;background:none;border:none;cursor:pointer;color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;color:var(--cafe-deep);line-height:1.1}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--azul-dark);display:flex;align-items:center;gap:8px}
+  .eyebrow::before{content:'';width:22px;height:2px;background:var(--oro);display:inline-block;border-radius:2px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.25s}
+  .btn-gold{background:linear-gradient(135deg,var(--oro-bright),var(--oro));color:#1b2b38;box-shadow:0 8px 24px rgba(184,145,47,.3)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid var(--cafe-line);color:var(--cafe-deep)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--crema-base) 80%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--cafe-line)}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.25rem}
+  .brand img{width:26px;height:26px;object-fit:contain}
+
+  /* HERO */
+  .hero{padding:52px 0 36px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
+  .hero h1{font-size:clamp(1.9rem,4vw,2.7rem);margin:14px 0 12px}
+  .hero p.lead{color:var(--cafe-mid);max-width:600px;line-height:1.6;font-size:1rem;margin-bottom:22px}
+  .preview-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--crema-surface);box-shadow:var(--shadow-lg);border:1px solid var(--cafe-line)}
+  .preview-media{position:relative;aspect-ratio:19/8;overflow:hidden;background:#0d1820}
+  .preview-media video{width:100%;height:100%;object-fit:cover;display:block}
+  .preview-mute{position:absolute;bottom:14px;left:14px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center}
+  .preview-mute svg{width:15px;height:15px;color:#fff}
+  .badge-float{position:absolute;top:16px;left:16px;z-index:3;background:var(--oro-bright);color:#1b2b38;font-size:.68rem;font-weight:800;letter-spacing:.04em;padding:6px 12px;border-radius:100px;text-transform:uppercase}
+  .preview-cta{padding:18px 22px 0;background:var(--crema-surface)}
+  .preview-cta .btn{width:100%}
+  .preview-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px}
+  .preview-foot .price-now{font-family:var(--font-display);font-weight:700;font-size:1.4rem}
+  .preview-foot .price-was{font-size:.78rem;color:var(--cafe-soft);text-decoration:line-through;margin-left:6px}
+
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--cafe-line);margin-top:26px}
+  .stat{padding:16px 14px 0;border-left:1px solid var(--cafe-line)}
+  .stat:first-child{border-left:none;padding-left:0}
+  .stat .num{font-family:var(--font-display);font-weight:700;font-size:1.7rem;color:var(--azul-dark);display:block}
+  .stat .lbl{font-size:.7rem;color:var(--cafe-mid);display:block;margin-top:2px}
+  @media (max-width:600px){.stat-strip{grid-template-columns:repeat(2,1fr);row-gap:16px}.stat:nth-child(3){border-left:none}}
+
+  /* ICONOS FANCY (custom, no genéricos) */
+  .icon-badge{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--azul-pale),var(--oro-pale));display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+  .icon-badge::after{content:'';position:absolute;inset:0;border-radius:12px;border:1px solid rgba(169,129,47,.25)}
+  .icon-badge svg{width:20px;height:20px;color:var(--azul-dark)}
+
+  /* TABS "TODO SOBRE EL CURSO" */
+  .curso-block{padding:56px 0}
+  .curso-block h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:22px}
+  .tabs-nav{display:flex;gap:6px;border-bottom:1px solid var(--cafe-line);overflow-x:auto;margin-bottom:30px}
+  .tab-btn{padding:12px 4px;margin-right:26px;font-weight:700;font-size:.92rem;color:var(--cafe-soft);border-bottom:2px solid transparent;white-space:nowrap;transition:.2s}
+  .tab-btn.active{color:var(--cafe-deep);border-bottom-color:var(--oro)}
+  .tab-panel{display:none;animation:fadeIn .35s ease}
+  .tab-panel.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Qué aprenderás */
+  .aprende-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media (max-width:700px){.aprende-grid{grid-template-columns:1fr}}
+  .aprende-item{display:flex;gap:16px;align-items:flex-start}
+  .aprende-item p{font-size:.92rem;color:var(--cafe-mid);line-height:1.55}
+  .aprende-item strong{color:var(--cafe-deep)}
+
+  /* Qué incluye */
+  .incluye-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:760px){.incluye-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.incluye-grid{grid-template-columns:1fr}}
+  .incluye-card{background:var(--crema-surface);border:1px solid var(--cafe-line);border-radius:var(--radius);padding:22px 20px;box-shadow:var(--shadow-sm)}
+  .incluye-card h4{font-size:.95rem;margin:14px 0 6px;font-family:var(--font-body);font-weight:700}
+  .incluye-card p{font-size:.83rem;color:var(--cafe-mid);line-height:1.5}
+
+  /* Temario acordeón */
+  .modulo{background:var(--crema-surface);border:1px solid var(--cafe-line);border-radius:var(--radius);margin-bottom:12px;overflow:hidden}
+  .modulo-head{display:flex;align-items:center;gap:16px;padding:18px 20px;width:100%;text-align:left}
+  .modulo-head .n{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--azul-dark);width:34px;flex-shrink:0}
+  .modulo-head h4{font-size:.95rem;flex:1;font-family:var(--font-body);font-weight:700}
+  .modulo-head svg{width:16px;height:16px;color:var(--oro);flex-shrink:0;transition:transform .3s}
+  .modulo.open .modulo-head svg{transform:rotate(45deg)}
+  .modulo-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .modulo-body ul{list-style:none;padding:0 20px 20px 70px;display:flex;flex-direction:column;gap:8px}
+  .modulo-body li{font-size:.86rem;color:var(--cafe-mid);line-height:1.5;position:relative}
+  .modulo-body li::before{content:'—';position:absolute;left:-18px;color:var(--oro)}
+  .dirigido-a{font-size:.9rem;color:var(--cafe-mid);margin-bottom:24px;padding:14px 18px;background:var(--azul-pale);border-radius:var(--radius-sm);border-left:3px solid var(--azul-dark)}
+
+  /* Ponente */
+  .ponente{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+  @media (max-width:640px){.ponente{grid-template-columns:1fr;text-align:center}}
+  .ponente img{border-radius:var(--radius-lg);box-shadow:var(--shadow-md);width:100%}
+  .ponente .rol{color:var(--azul-dark);font-weight:700;font-size:.8rem;letter-spacing:.03em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .ponente h3{font-size:1.35rem;margin-bottom:4px}
+  .ponente .subrol{font-size:.85rem;color:var(--oro);font-weight:700;margin-bottom:14px;display:block}
+  .ponente p{font-size:.9rem;color:var(--cafe-mid);line-height:1.6;margin-bottom:12px}
+  .ponente h5{font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--cafe-deep);margin:16px 0 8px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  @media (max-width:640px){.pills{justify-content:center}}
+  .pill{font-size:.76rem;font-weight:700;color:var(--azul-dark);background:var(--azul-pale);padding:6px 12px;border-radius:100px}
+
+  /* PRECIO */
+  .precio-card{background:var(--cafe-deep);color:#fbf3e2;border-radius:var(--radius-lg);padding:44px 36px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .precio-card::before{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle, rgba(217,171,61,.16), transparent 70%);top:-140px;right:-100px}
+  .precio-card h2{color:#fbf3e2;font-size:clamp(1.5rem,2.4vw,1.9rem);margin-bottom:12px;position:relative}
+  .precio-card p{color:#d9c9ae;font-size:.9rem;line-height:1.6;margin-bottom:20px;position:relative}
+  .precio-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:26px;position:relative;max-width:340px}
+  .precio-box .was{font-size:.9rem;color:#c9b493;text-decoration:line-through}
+  .precio-box .now{font-family:var(--font-display);font-weight:700;font-size:2.6rem;color:#fff;line-height:1}
+  .precio-box .now span{font-size:.95rem;color:#d9c9ae;font-family:var(--font-body);font-weight:600}
+  .precio-box .cupo-lbl{display:flex;justify-content:space-between;font-size:.72rem;color:#d9c9ae;margin:16px 0 6px}
+  .cupo-bar{height:6px;border-radius:100px;background:rgba(255,255,255,.14);overflow:hidden}
+  .cupo-bar span{display:block;height:100%;width:34%;background:linear-gradient(90deg,var(--oro-bright),var(--oro));border-radius:100px}
+  .precio-box .btn-gold{width:100%;margin-top:20px}
+  .precio-nota{font-size:.74rem;color:#c9b493;margin-top:12px;text-align:center}
+
+  /* AVISO DE PRIVACIDAD */
+  .privacidad-toggle{font-size:.8rem;color:var(--cafe-mid);text-decoration:underline;cursor:pointer}
+  .privacidad-body{display:none;font-size:.83rem;color:var(--cafe-mid);line-height:1.7;margin-top:16px;max-width:720px}
+  .privacidad-body.open{display:block}
+
+  footer{background:var(--cafe-deep);color:#d9c9ae;padding:44px 0 26px;margin-top:20px}
+  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot-brand{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:#fbf3e2}
+  .foot-social{display:flex;gap:12px}
+  .foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
+  .foot-social svg{width:14px;height:14px}
+  .foot-bottom{padding-top:20px;font-size:.74rem;color:#a9906f;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* WHATSAPP FLOTANTE */
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:70;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .wa-float svg{width:26px;height:26px;color:#fff}
+
+  /* BARRA STICKY MÓVIL */
+  .sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:65;background:var(--crema-surface);border-top:1px solid var(--cafe-line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 -8px 24px rgba(0,0,0,.08)}
+  .sticky-bar .p{font-family:var(--font-display);font-weight:700;font-size:1.15rem}
+  .sticky-bar .p small{display:block;font-family:var(--font-body);font-weight:600;font-size:.68rem;color:var(--cafe-mid)}
+
+  /* MODAL CHECKOUT INLINE */
+  .modal-overlay{position:fixed;inset:0;background:rgba(15,20,25,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.open{display:flex}
+  .modal-box{background:var(--crema-surface);border-radius:var(--radius-lg);padding:34px;max-width:400px;width:100%;text-align:center;box-shadow:var(--shadow-lg)}
+  .modal-box h3{margin-bottom:10px}
+  .modal-box p{color:var(--cafe-mid);font-size:.9rem;margin-bottom:20px}
+  .spinner{width:34px;height:34px;border:3px solid var(--cafe-line);border-top-color:var(--oro);border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .modal-close{margin-top:14px;font-size:.82rem;color:var(--cafe-mid);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand"><img src="img/logo-dermalysse.png" alt="Dermalysse">Dermalysse</div>
+    <a href="#precio" class="btn btn-gold" style="padding:9px 18px;font-size:.8rem">Inscribirme</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Curso online · Dermalysse</span>
+      <h1>Cosmetología para Hombres: Cuidado de la Piel Masculina</h1>
+      <p class="lead">Con la Cosm. Mary Angélica Caballero Cebada. Ve el avance gratis, e inscríbete cuando decidas tomar las 3 clases completas — sin WhatsApp para comprar, sin esperar respuesta.</p>
+
+      <div class="preview-card">
+        <span class="badge-float">Clase muestra — sin costo</span>
+        <div class="preview-media">
+          <video src="video/preview-cosmetologia-hombres.mp4" poster="img/cursos/preview-poster-cosmetologia-hombres.jpg" autoplay muted loop playsinline></video>
+          <button class="preview-mute" id="muteBtn" aria-label="Activar sonido">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 9v6h4l5 4V5L9 9H5Z"/><path d="M17 8a5 5 0 0 1 0 8" opacity=".4"/><line x1="16" y1="6" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="preview-cta"><a href="#temario" class="btn btn-gold">Ver curso completo</a></div>
+        <div class="preview-foot">
+          <div><span class="price-now">$450 MXN</span><span class="price-was">$650</span></div>
+          <a href="#precio" class="btn btn-gold btn-sm">Inscribirme</a>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><span class="num">5</span><span class="lbl">Módulos</span></div>
+        <div class="stat"><span class="num">3</span><span class="lbl">Clases en video</span></div>
+        <div class="stat"><span class="num">15</span><span class="lbl">Lugares con descuento</span></div>
+        <div class="stat"><span class="num">1</span><span class="lbl">Certificado con QR</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO SOBRE EL CURSO — PESTAÑAS -->
+  <section class="curso-block" id="temario">
+    <div class="wrap">
+      <h2>Todo sobre el curso</h2>
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="aprende">Qué aprenderás</button>
+        <button class="tab-btn" data-tab="incluye">Qué incluye</button>
+        <button class="tab-btn" data-tab="temario">Temario</button>
+        <button class="tab-btn" data-tab="ponente">Ponente</button>
+      </div>
+
+      <!-- QUÉ APRENDERÁS -->
+      <div class="tab-panel active" data-panel="aprende">
+        <div class="aprende-grid">
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12c2-4 5-6 8-6s6 2 8 6c-2 4-5 6-8 6s-6-2-8-6Z"/><circle cx="12" cy="12" r="2.4"/></svg></div>
+            <p><strong>Diagnosticar la piel masculina</strong> y sus diferencias estructurales y hormonales frente a la piel femenina.</p>
+          </div>
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9Z"/></svg></div>
+            <p><strong>Construir rutinas de cuidado facial</strong> — limpieza, hidratación y protección solar adaptadas a hombres.</p>
+          </div>
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/></svg></div>
+            <p><strong>Tratar acné, irritación post-afeitado y envejecimiento</strong> con técnicas y productos específicos.</p>
+          </div>
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 12h10M12 7v10"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <p><strong>Aplicar masajes faciales</strong> con gua sha y rodillos, y calmar la piel tras el afeitado.</p>
+          </div>
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4h9l3 3v13H6Z"/><path d="M9 10h6M9 14h6"/></svg></div>
+            <p><strong>Seleccionar cosméticos correctos</strong> según tipo de piel: grasa, seca o mixta.</p>
+          </div>
+          <div class="aprende-item">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg></div>
+            <p><strong>Cuidar barba y bigote</strong> con productos y técnicas pensadas para vello facial.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUÉ INCLUYE -->
+      <div class="tab-panel" data-panel="incluye">
+        <div class="incluye-grid">
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4h9l3 3v13H6Z"/><path d="M9 10h6M9 14h6M9 18h4"/></svg></div>
+            <h4>Manual del curso</h4>
+            <p>Cosmetología para hombres, listo para consultar cuando quieras.</p>
+          </div>
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 9v11"/></svg></div>
+            <h4>Ficha de evaluación en Excel</h4>
+            <p>Para valoración inicial y seguimiento del paciente masculino.</p>
+          </div>
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <h4>Checklist de valoración</h4>
+            <p>Lista de verificación para la valoración inicial de la piel.</p>
+          </div>
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+            <h4>Comunidad de soporte</h4>
+            <p>Acompañamiento para resolver dudas sobre el curso.</p>
+          </div>
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h4>Certificado digital con QR</h4>
+            <p>Folio válido y verificable, mismo formato del Club Dermalysse.</p>
+          </div>
+          <div class="incluye-card">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 5v14l11-7-11-7Z"/></svg></div>
+            <h4>Acceso a las 3 clases grabadas</h4>
+            <p>Míralas cuantas veces quieras, sin fecha de vencimiento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEMARIO (ACORDEÓN) -->
+      <div class="tab-panel" data-panel="temario">
+        <div class="dirigido-a"><strong>Dirigido a:</strong> Profesionales en cosmiatría, esteticistas y estudiantes.</div>
+        <div class="modulo open">
+          <button class="modulo-head"><span class="n">01</span><h4>Introducción a la Cosmetología Masculina</h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="modulo-body" style="max-height:400px">
+            <ul>
+              <li>Diferencias entre la piel masculina y femenina: características estructurales y hormonales.</li>
+              <li>Necesidades específicas de la piel masculina.</li>
+              <li>Importancia del cuidado facial en hombres: tendencias y creciente demanda.</li>
+              <li>Mitos y realidades del cuidado de la piel masculina.</li>
+              <li>Principales problemas de la piel masculina: acné, irritación por afeitado, piel grasa y envejecimiento.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modulo">
+          <button class="modulo-head"><span class="n">02</span><h4>Rutinas de Cuidado Facial para Hombres</h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="modulo-body">
+            <ul>
+              <li>Pasos básicos de una rutina diaria de cuidado facial.</li>
+              <li>Limpieza: selección de limpiadores según el tipo de piel masculina.</li>
+              <li>Hidratación: importancia de las cremas y su elección.</li>
+              <li>Protección solar: uso adecuado e importancia dentro de la rutina diaria.</li>
+              <li>Productos específicos para hombres: diferencias y beneficios.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modulo">
+          <button class="modulo-head"><span class="n">03</span><h4>Tratamientos Específicos para la Piel Masculina</h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="modulo-body">
+            <ul>
+              <li>Tratamientos para el acné y la piel grasa: opciones y recomendaciones.</li>
+              <li>Tratamientos para la irritación postafeitado: productos y técnicas.</li>
+              <li>Antienvejecimiento: cómo combatir los signos del envejecimiento en hombres.</li>
+              <li>Hidratación profunda: mascarillas y cremas para una piel más saludable.</li>
+              <li>Técnicas de exfoliación: cómo y cuándo exfoliar la piel masculina.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modulo">
+          <button class="modulo-head"><span class="n">04</span><h4>Masajes Faciales para Hombres</h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="modulo-body">
+            <ul>
+              <li>Beneficios de los masajes faciales para la piel masculina.</li>
+              <li>Técnicas de masaje específicas para reducir la tensión y mejorar la circulación.</li>
+              <li>Aplicación de masajes para prevenir signos de envejecimiento.</li>
+              <li>Uso de herramientas como gua sha y rodillos faciales.</li>
+              <li>Masajes postafeitado para calmar la piel.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="modulo">
+          <button class="modulo-head"><span class="n">05</span><h4>Cosméticos y Productos para Hombres</h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="modulo-body">
+            <ul>
+              <li>Selección de cosméticos según el tipo de piel masculina: grasa, seca o mixta.</li>
+              <li>Ingredientes clave en cosméticos masculinos: qué buscar en los productos.</li>
+              <li>Productos recomendados: limpiadores, tónicos, exfoliantes, hidratantes y cremas antiarrugas.</li>
+              <li>Cómo elegir productos que no irriten la piel masculina.</li>
+              <li>Uso de productos para el cuidado de la barba y el bigote.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PONENTE -->
+      <div class="tab-panel" data-panel="ponente">
+        <div class="ponente">
+          <img src="img/instructores/mary-angelica-caballero-cebada.png" alt="Mary Angélica Caballero Cebada">
+          <div>
+            <span class="rol">Ponente</span>
+            <h3>Mary Angélica Caballero Cebada</h3>
+            <span class="subrol">Q.F.B. · Especialista en Cosmetología Clínica y Capacitación Profesional</span>
+            <p>Profesional con más de 30 años de experiencia en salud, capacitación, supervisión y gestión administrativa. Apasionada por la enseñanza y el desarrollo del talento, combina su formación científica con una sólida especialización en estética para brindar capacitación práctica, actualizada y orientada a resultados.</p>
+
+            <h5>Experiencia destacada</h5>
+            <p>Q.F.B. de Laboratorio en el Hospital Universitario de Puebla (1992–1995). Asesora de Nutrición y Directora de Guardería en IMSS (2000–2014). Supervisora Interna en Guarderías IMSS (2014–2021). Propietaria de Bodhi & Body Spa desde 2023. Amplia experiencia impartiendo cursos presenciales y en línea en diferentes instituciones del país.</p>
+
+            <h5>Formación y certificaciones</h5>
+            <p>Evaluadora Independiente de Estándares CONOCER. Capacitadora externa registrada ante la STPS. Certificaciones en cosmetología facial y corporal, Dermapen, uñas acrílicas, extensiones de pestañas y más. Certificada en diseño e impartición de cursos y evaluación de competencias.</p>
+
+            <h5>Educación</h5>
+            <p>Química Farmacéutica Bióloga (BUAP). Tecnólogo en Alimentos (BUAP). Certificación en Cosmiatría Clínica Integral. Cursos y diplomados en mesoterapia, sueroterapia, aromaterapia, peeling químico, protección civil y más.</p>
+
+            <div class="pills">
+              <span class="pill">30+ años de experiencia</span>
+              <span class="pill">Evaluadora CONOCER</span>
+              <span class="pill">Capacitadora STPS</span>
+              <span class="pill">Q.F.B. · BUAP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section class="curso-block" id="precio" style="padding-top:0">
+    <div class="wrap">
+      <div class="precio-card">
+        <div>
+          <span class="eyebrow" style="color:var(--oro-bright)">Inscripción</span>
+          <h2>Cosmetología para Hombres: Cuidado de la Piel Masculina</h2>
+          <p>Inicia el 28 de julio · Modalidad online · Cupo limitado. Incluye manual, ficha de evaluación, checklist, comunidad de soporte y certificado digital con QR.</p>
+        </div>
+        <div class="precio-box">
+          <span class="was">$650 MXN</span>
+          <div class="now">$450<span> MXN</span></div>
+          <div class="cupo-lbl"><span>Lugares con descuento</span><span>5 / 15 tomados</span></div>
+          <div class="cupo-bar"><span></span></div>
+          <button class="btn btn-gold" id="checkoutBtn">Inscribirme ahora</button>
+          <p class="precio-nota">Pago seguro con tarjeta, procesado por Stripe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVISO DE PRIVACIDAD -->
+  <section class="curso-block" style="padding-top:0">
+    <div class="wrap">
+      <span class="privacidad-toggle" id="privToggle">Ver aviso de privacidad</span>
+      <div class="privacidad-body" id="privBody">
+        <p>Dermalysse recaba los datos personales que usted proporciona (nombre, correo electrónico y datos de pago procesados por Stripe) con la única finalidad de gestionar su inscripción al curso, otorgar el acceso a las clases correspondientes y emitir su certificado digital con código QR. Sus datos no se comparten con terceros distintos de los proveedores necesarios para el procesamiento del pago (Stripe) y el alojamiento de contenido (Firebase). Usted puede ejercer sus derechos de acceso, rectificación, cancelación u oposición escribiendo a través de nuestros canales de contacto. El pago se procesa de forma segura y Dermalysse no almacena los datos completos de su tarjeta.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">Dermalysse</div>
+      <div class="foot-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dermalysse. Cursos en línea con certificación.</span>
+      <span>Diseñado por TEC CAPITAL</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/5212971058118?text=Hola%2C%20tengo%20una%20duda%20sobre%20el%20curso%20de%20Cosmetolog%C3%ADa%20para%20Hombres" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.91 6.478L4 29l7.727-1.877A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3Zm0 21.818a9.78 9.78 0 0 1-4.996-1.363l-.358-.213-4.585 1.114 1.223-4.47-.233-.367A9.78 9.78 0 0 1 5.818 15c0-5.618 4.564-10.182 10.183-10.182S26.184 9.382 26.184 15 21.62 24.818 16.001 24.818Zm5.6-7.636c-.307-.154-1.815-.895-2.096-.998-.281-.102-.486-.153-.69.154-.205.307-.79.997-.968 1.202-.179.205-.358.23-.665.077-.307-.154-1.294-.477-2.465-1.522-.911-.812-1.526-1.815-1.705-2.122-.179-.307-.02-.473.134-.626.137-.137.307-.358.46-.537.154-.18.205-.307.307-.512.102-.205.05-.384-.026-.538-.077-.154-.69-1.664-.945-2.28-.249-.6-.502-.518-.69-.527-.179-.008-.384-.01-.588-.01-.205 0-.538.077-.82.384-.281.307-1.075 1.05-1.075 2.562s1.1 2.972 1.254 3.177c.154.205 2.166 3.308 5.249 4.638.734.317 1.306.506 1.753.648.736.234 1.406.201 1.936.122.591-.088 1.815-.742 2.07-1.459.256-.717.256-1.331.179-1.459-.076-.128-.28-.205-.588-.359Z"/></svg>
+</a>
+
+<div class="sticky-bar">
+  <div class="p">$450 MXN <small>Inicia 28 de julio</small></div>
+  <button class="btn btn-gold btn-sm" id="stickyBtn">Inscribirme</button>
+</div>
+
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal-box">
+    <div class="spinner"></div>
+    <h3>Preparando tu pago…</h3>
+    <p>Aquí se conecta la Stripe Checkout Session del curso (pendiente de wiring con el webhook).</p>
+    <span class="modal-close" id="modalClose">Cancelar</span>
+  </div>
+</div>
+
+<script>
+  // Video sonido
+  const previewVideo = document.querySelector('.preview-media video');
+  const muteBtn = document.getElementById('muteBtn');
+  if(previewVideo && muteBtn){
+    muteBtn.addEventListener('click', ()=>{
+      previewVideo.muted = !previewVideo.muted;
+      muteBtn.setAttribute('aria-label', previewVideo.muted ? 'Activar sonido' : 'Silenciar');
+    });
+  }
+
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('[data-panel="'+btn.dataset.tab+'"]').classList.add('active');
+    });
+  });
+
+  // Acordeón de temario
+  document.querySelectorAll('.modulo-head').forEach(head=>{
+    head.addEventListener('click', ()=>{
+      const modulo = head.closest('.modulo');
+      const body = modulo.querySelector('.modulo-body');
+      const isOpen = modulo.classList.contains('open');
+      modulo.classList.toggle('open', !isOpen);
+      body.style.maxHeight = isOpen ? null : body.scrollHeight + 'px';
+    });
+  });
+
+  // Aviso de privacidad
+  document.getElementById('privToggle').addEventListener('click', function(){
+    const body = document.getElementById('privBody');
+    body.classList.toggle('open');
+    this.textContent = body.classList.contains('open') ? 'Ocultar aviso de privacidad' : 'Ver aviso de privacidad';
+  });
+
+  // Checkout inline (modal, no nueva pestaña) — placeholder hasta conectar Stripe
+  const modal = document.getElementById('checkoutModal');
+  function abrirCheckout(e){
+    if(e) e.preventDefault();
+    modal.classList.add('open');
+  }
+  document.getElementById('checkoutBtn').addEventListener('click', abrirCheckout);
+  document.getElementById('stickyBtn').addEventListener('click', abrirCheckout);
+  document.getElementById('modalClose').addEventListener('click', ()=> modal.classList.remove('open'));
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.classList.remove('open'); });
+</script>
+
+</body>
+</html>

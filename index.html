@@ -1200,7 +1200,7 @@
             <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
             Entrar al Club
           </a>
-          <span class="club-price-hint">Desde <strong>$200 MXN</strong>/mes</span>
+          <span class="club-price-hint">Desde <strong id="club-precio-hint">$200 MXN</strong>/mes</span>
         </div>
       </div>
       <div class="club-visual reveal">
@@ -1383,6 +1383,22 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── PRECIO DINÁMICO del Club (leído de Firestore config/club vía REST, sin SDK)
+    (function(){
+      fetch('https://firestore.googleapis.com/v1/projects/club-dermalysse/databases/(default)/documents/config/club')
+        .then(r => r.json())
+        .then(d => {
+          const f = (d && d.fields) || {};
+          const raw = f.precioMes && (f.precioMes.integerValue || f.precioMes.doubleValue);
+          const precioMes = Number(raw);
+          if (precioMes > 0) {
+            const el = document.getElementById('club-precio-hint');
+            if (el) el.textContent = '$' + precioMes + ' MXN';
+          }
+        })
+        .catch(() => { /* si falla, se queda el precio por defecto del HTML */ });
+    })();
   </script>
 
 </body>

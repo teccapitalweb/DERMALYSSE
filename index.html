@@ -1,1388 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DERMALYSSE — Consultoría en Dermatología y Estética</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dermalysse: formación editorial en dermatología, cosmetología y estética. Explora los cursos y mira la primera clase gratis.">
+  <meta name="theme-color" content="#641d2c">
+  <title>Dermalysse — The Skin Edit</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    /* ═══════════════════════════════════════
-       DERMALYSSE — Minimalist Rose Theme
-       ═══════════════════════════════════════ */
-
-    :root {
-      --rosa-bold: #f74780;
-      --rosa-main: #fc6998;
-      --rosa-mid: #fa8fb1;
-      --rosa-soft: #ffc1d5;
-      --rosa-pale: #ffe4ec;
-      --rosa-ghost: #fff5f8;
-      --white: #ffffff;
-      --dark: #2a1a1f;
-      --gray: #6b5a60;
-      --light-gray: #9a8a90;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
-      color: var(--dark);
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.4s ease;
-      background: transparent;
-    }
-
-    nav.scrolled {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 1px 30px rgba(252,105,152,0.08);
-      padding: 0.7rem 2rem;
-    }
-
-    .nav-logo {
-      height: 50px;
-      border-radius: 50%;
-      transition: transform 0.3s ease;
-    }
-
-    nav.scrolled .nav-logo {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--white);
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    nav.scrolled .nav-links a {
-      color: var(--dark);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: var(--rosa-main);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 2px;
-      background: var(--white);
-      transition: all 0.3s ease;
-    }
-
-    nav.scrolled .hamburger span {
-      background: var(--dark);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--rosa-main) 0%, var(--rosa-bold) 50%, var(--rosa-mid) 100%);
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -30%;
-      width: 80%;
-      height: 150%;
-      background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(to top, var(--white), transparent);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      text-align: center;
-      z-index: 2;
-      padding: 2rem;
-      animation: fadeUp 1.2s ease forwards;
-    }
-
-    .hero-logo-main {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(255,255,255,0.3);
-      margin-bottom: 2rem;
-      animation: softPulse 4s ease-in-out infinite;
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      color: var(--white);
-      letter-spacing: 0.2em;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-tagline {
-      font-size: clamp(0.85rem, 2vw, 1.05rem);
-      font-weight: 200;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      padding: 0.9rem 3rem;
-      border: 1.5px solid rgba(255,255,255,0.5);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 400;
-      transition: all 0.4s ease;
-      border-radius: 50px;
-    }
-
-    .hero-cta:hover {
-      background: var(--white);
-      color: var(--rosa-main);
-      border-color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    }
-
-    /* ── ACERCA ── */
-    .acerca {
-      padding: 6rem 2rem;
-      background: var(--rosa-ghost);
-    }
-
-    .acerca-wrapper {
-      max-width: 750px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .acerca-wrapper h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--dark);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.8rem;
-    }
-
-    .acerca-wrapper .line {
-      width: 50px;
-      height: 1.5px;
-      background: var(--rosa-main);
-      margin: 0 auto 2.5rem auto;
-    }
-
-    .acerca-wrapper p {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.9;
-      margin-bottom: 1.2rem;
-    }
-
-    .acerca-wrapper p:last-of-type {
-      font-weight: 400;
-      color: var(--rosa-main);
-      font-size: 1.05rem;
-      margin-top: 0.5rem;
-    }
-
-    /* ── MODAL ── */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(42,26,31,0.45);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-    }
-
-    .modal-backdrop.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      transform: translateY(30px) scale(0.95);
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-      box-shadow: 0 25px 60px rgba(252,105,152,0.15);
-      position: relative;
-    }
-
-    .modal-backdrop.active .modal-card {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.2rem;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: var(--light-gray);
-      cursor: pointer;
-      transition: color 0.3s ease;
-      line-height: 1;
-    }
-
-    .modal-close:hover {
-      color: var(--rosa-bold);
-    }
-
-    .modal-curso-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--dark);
-      margin-bottom: 0.4rem;
-    }
-
-    .modal-modalidad {
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--rosa-main);
-      margin-bottom: 2rem;
-    }
-
-    .modal-features {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-bottom: 2rem;
-    }
-
-    .modal-feature {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.7rem 1rem;
-      background: var(--rosa-ghost);
-      border-radius: 12px;
-    }
-
-    .modal-feature-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--rosa-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .modal-feature-icon svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .modal-feature span {
-      font-size: 0.88rem;
-      font-weight: 400;
-      color: var(--dark);
-      text-align: left;
-    }
-
-    .modal-inscribirse {
-      display: inline-block;
-      padding: 0.9rem 3rem;
-      background: #25D366;
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 50px;
-      transition: all 0.4s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .modal-inscribirse:hover {
-      background: #1fb855;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(37,211,102,0.25);
-    }
-
-    /* ── SECTION TITLES ── */
-    .section-title {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-title h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--dark);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-title .line {
-      width: 50px;
-      height: 1.5px;
-      background: var(--rosa-main);
-      margin: 0 auto;
-    }
-
-    /* ── CURSOS ── */
-    .cursos {
-      padding: 6rem 2rem;
-      background: var(--white);
-    }
-
-    .cursos-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .curso-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      cursor: pointer;
-      group: curso;
-    }
-
-    .curso-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease, filter 0.4s ease;
-    }
-
-    .curso-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .curso-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(252,105,152,0.85) 0%, transparent 60%);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .curso-card:hover .curso-overlay {
-      opacity: 1;
-    }
-
-    .curso-overlay span {
-      color: var(--white);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-
-    /* ── GALERÍA ── */
-    .galeria {
-      padding: 6rem 2rem;
-      background: var(--rosa-ghost);
-    }
-
-    .carousel-container {
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .carousel-track {
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(252,105,152,0.12);
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      aspect-ratio: 4/3;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .carousel-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid var(--rosa-soft);
-      background: var(--white);
-      color: var(--rosa-main);
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .carousel-btn:hover {
-      background: var(--rosa-main);
-      color: var(--white);
-      border-color: var(--rosa-main);
-      transform: scale(1.08);
-    }
-
-    .carousel-dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--rosa-soft);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .carousel-dot.active {
-      background: var(--rosa-main);
-      width: 24px;
-      border-radius: 4px;
-    }
-
-    /* ── CONTACTO ── */
-    .contacto {
-      padding: 6rem 2rem;
-      background: var(--white);
-    }
-
-    .contacto-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contacto-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 3rem;
-      font-style: italic;
-    }
-
-    .contacto-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .contacto-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      transition: all 0.4s ease;
-      border: 1.5px solid var(--rosa-soft);
-      color: var(--rosa-main);
-      background: var(--white);
-    }
-
-    .contacto-btn svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .contacto-btn:hover {
-      background: var(--rosa-main);
-      color: var(--white);
-      border-color: var(--rosa-main);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(252,105,152,0.2);
-    }
-
-    .contacto-btn:hover svg path,
-    .contacto-btn:hover svg circle {
-      fill: var(--white);
-    }
-
-    .contacto-btn--whatsapp:hover {
-      background: #25D366;
-      border-color: #25D366;
-    }
-
-    /* ── CLUB DE MIEMBROS ── */
-    .club-section {
-      --club-dark: #2e5f7a;
-      --club-main: #5a96b5;
-      --club-light: #7db4cf;
-      --club-pale: #d4e8f2;
-      --club-ghost: #edf5fa;
-      --club-cream: #fffdf2;
-      --club-cream-mid: #f5edd4;
-      --club-gold: #c9a84c;
-      padding: 6rem 2rem;
-      background: linear-gradient(165deg, var(--club-cream) 0%, #fff 40%, var(--club-ghost) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .club-section::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(46,95,122,.08), transparent 70%);
-      pointer-events: none;
-    }
-
-    .club-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .club-info {
-      position: relative;
-      z-index: 1;
-    }
-
-    .club-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(46,95,122,.1);
-      color: var(--club-dark);
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: .5rem 1rem;
-      border-radius: 30px;
-      margin-bottom: 1.5rem;
-    }
-
-    .club-info h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-
-    .club-info h2 span {
-      background: linear-gradient(135deg, var(--club-dark), var(--club-main));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 600;
-    }
-
-    .club-info > p {
-      font-size: 1.05rem;
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .club-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .club-feat {
-      display: flex;
-      align-items: flex-start;
-      gap: .75rem;
-      padding: .75rem;
-      border-radius: 12px;
-      background: rgba(255,255,255,.7);
-      backdrop-filter: blur(6px);
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .club-feat:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(46,95,122,.1);
-    }
-
-    .club-feat-icon {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--club-pale), var(--club-ghost));
-      display: grid;
-      place-items: center;
-    }
-
-    .club-feat-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--club-dark);
-      fill: none;
-      stroke-width: 1.8;
-    }
-
-    .club-feat span {
-      font-size: .88rem;
-      font-weight: 400;
-      color: var(--dark);
-      line-height: 1.4;
-    }
-
-    .club-actions {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .club-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      padding: 1rem 2.2rem;
-      background: linear-gradient(135deg, var(--club-dark), var(--club-main));
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: .95rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all .4s ease;
-      box-shadow: 0 8px 25px rgba(46,95,122,.3);
-    }
-
-    .club-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(46,95,122,.4);
-    }
-
-    .club-btn-primary svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: white;
-      stroke-width: 2;
-    }
-
-    .club-price-hint {
-      font-size: .85rem;
-      color: var(--light-gray);
-    }
-
-    .club-price-hint strong {
-      color: var(--dark);
-      font-weight: 600;
-    }
-
-    .club-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .club-card-preview {
-      background: var(--club-cream);
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(42,26,31,.1);
-      padding: 2.5rem 2rem;
-      width: 100%;
-      max-width: 380px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .club-card-preview::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--club-dark), var(--club-main), var(--club-light));
-    }
-
-    .club-card-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .club-card-logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      margin-bottom: .75rem;
-    }
-
-    .club-card-header h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--dark);
-    }
-
-    .club-card-header p {
-      font-size: .8rem;
-      color: var(--club-gold);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .club-card-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: .75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .club-card-stat {
-      text-align: center;
-      padding: .75rem .5rem;
-      background: rgba(46,95,122,.06);
-      border-radius: 12px;
-    }
-
-    .club-card-stat strong {
-      display: block;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--club-dark);
-    }
-
-    .club-card-stat span {
-      font-size: .7rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-    .club-card-items {
-      list-style: none;
-    }
-
-    .club-card-items li {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      padding: .6rem 0;
-      border-bottom: 1px solid var(--club-pale);
-      font-size: .85rem;
-      color: var(--gray);
-    }
-
-    .club-card-items li:last-child {
-      border-bottom: none;
-    }
-
-    .club-card-items li svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--club-main);
-      fill: none;
-      stroke-width: 2;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 768px) {
-      .club-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-      }
-      .club-info h2 { font-size: 2.1rem; }
-      .club-features { grid-template-columns: 1fr; }
-      .club-actions { justify-content: center; }
-      .club-visual { order: -1; }
-      .club-card-preview { max-width: 340px; }
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: linear-gradient(135deg, var(--rosa-main), var(--rosa-bold));
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-
-    footer p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-    }
-
-    footer a {
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes softPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.2); }
-      50% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: rgba(255,255,255,0.97);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        transition: right 0.4s ease;
-      }
-
-      .nav-links.open {
-        right: 0;
-      }
-
-      .nav-links a {
-        color: var(--dark) !important;
-        font-size: 1rem;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
-
-      .hero h1 {
-        letter-spacing: 0.1em;
-      }
-
-      .cursos-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-
-      .curso-overlay {
-        opacity: 1;
-        background: linear-gradient(to top, rgba(252,105,152,0.75) 0%, transparent 50%);
-      }
-
-      .contacto-links {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .contacto-btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .cursos-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8rem;
-      }
-
-      .curso-card {
-        border-radius: 12px;
-      }
-    }
-  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dermalysse — The Skin Edit">
+  <meta property="og:description" content="La belleza también se estudia.">
+  <meta property="og:url" content="https://www.dermalyssemx.com/">
+  <meta property="og:image" content="https://www.dermalyssemx.com/img/fashion/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dermalysse — The Skin Edit">
+  <meta name="twitter:description" content="La belleza también se estudia.">
+  <meta name="twitter:image" content="https://www.dermalyssemx.com/img/fashion/social-preview.png">
+  <link rel="stylesheet" href="css/fashion.css">
+  <script defer src="js/fashion.js"></script>
 </head>
 <body>
+  <main>
+    <div class="top-ribbon" aria-label="Beneficio de acceso">
+      <div><span>PRIMERA CLASE ABIERTA</span><i>✦</i><span>EXPLORA SIN PAGAR</span><i>✦</i><span>PRIMERA CLASE ABIERTA</span><i>✦</i><span>EXPLORA SIN PAGAR</span><i>✦</i></div>
+    </div>
 
-  <!-- ═══ NAV ═══ -->
-  <nav id="navbar">
-    <img src="img/logo.jpg" alt="Dermalysse" class="nav-logo">
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
-      <li><a href="#cursos" onclick="closeMenu()">Cursos</a></li>
-      <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
-      <li><a href="#club" onclick="closeMenu()">Club</a></li>
-      <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
+    <header class="fashion-nav">
+      <a class="official-logo" href="#inicio" aria-label="Dermalysse, volver al inicio">
+        <img src="img/logo-dermalysse.png" alt="Dermalysse" width="1254" height="1254">
+      </a>
+      <nav class="fashion-links" id="main-navigation" aria-label="Navegación principal">
+        <a href="#editorial">The edit</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#club">El club</a>
+        <a class="nav-membership" href="https://club.dermalyssemx.com" target="_blank" rel="noreferrer">Entrar al club <span>↗</span></a>
+      </nav>
+      <button class="fashion-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+    </header>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <img src="img/logo.jpg" alt="Dermalysse Logo" class="hero-logo-main">
-      <h1>DERMALYSSE</h1>
-      <p class="hero-tagline">Consultoría en Dermatología & Estética</p>
-      <a href="#cursos" class="hero-cta">Descubre Nuestros Cursos</a>
-    </div>
-  </section>
-
-  <!-- ═══ ACERCA ═══ -->
-  <section class="acerca">
-    <div class="acerca-wrapper reveal">
-      <h2>DERMALYSSE</h2>
-      <div class="line"></div>
-      <p>En DERMALYSSE somos especialistas en Cosmetología y Dermatología, brindando un enfoque integral y personalizado en el cuidado de la piel. Nuestra misión es ofrecer soluciones innovadoras y de calidad para el bienestar de tu piel, combinando tratamientos avanzados con conocimientos de vanguardia.</p>
-      <p>Ofrecemos cursos online especializados, diseñados para capacitarte en las últimas tendencias y técnicas del cuidado dermatológico y cosmetológico. Aprende desde la comodidad de tu hogar con nuestros programas de formación, impartidos por expertos en la industria.</p>
-      <p>¡Únete a nosotros y transforma tu conocimiento sobre la piel!</p>
-    </div>
-  </section>
-
-  <!-- ═══ CURSOS ═══ -->
-  <section class="cursos" id="cursos">
-    <div class="section-title reveal">
-      <h2>Nuestros Cursos</h2>
-      <div class="line"></div>
-    </div>
-    <div class="cursos-grid">
-      <div class="curso-card reveal" onclick="openModal('Cicatrices')">
-        <img src="img/cursos/cicatrices.jpg" alt="Cicatrices" loading="lazy">
-        <div class="curso-overlay"><span>Cicatrices</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Quirúrgico')">
-        <img src="img/cursos/quirurgico.jpg" alt="Quirúrgico" loading="lazy">
-        <div class="curso-overlay"><span>Quirúrgico</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Remodelación')">
-        <img src="img/cursos/remodelacion.jpg" alt="Remodelación" loading="lazy">
-        <div class="curso-overlay"><span>Remodelación</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Maquillaje')">
-        <img src="img/cursos/maquillaje.jpg" alt="Maquillaje" loading="lazy">
-        <div class="curso-overlay"><span>Maquillaje</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Linfodrenaje')">
-        <img src="img/cursos/linfodrenaje.jpg" alt="Linfodrenaje" loading="lazy">
-        <div class="curso-overlay"><span>Linfodrenaje</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Cosmética Natural')">
-        <img src="img/cursos/cosmetica-natural.jpg" alt="Cosmética Natural" loading="lazy">
-        <div class="curso-overlay"><span>Cosmética Natural</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Cosmetología')">
-        <img src="img/cursos/cosmetologia.jpg" alt="Cosmetología" loading="lazy">
-        <div class="curso-overlay"><span>Cosmetología</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Eczema')">
-        <img src="img/cursos/eczema.jpg" alt="Eczema" loading="lazy">
-        <div class="curso-overlay"><span>Eczema</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Hidrafacial')">
-        <img src="img/cursos/hidrafacial.jpg" alt="Hidrafacial" loading="lazy">
-        <div class="curso-overlay"><span>Hidrafacial</span></div>
-      </div>
-      <div class="curso-card reveal" onclick="openModal('Manchas')">
-        <img src="img/cursos/manchas.jpg" alt="Manchas" loading="lazy">
-        <div class="curso-overlay"><span>Manchas</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ GALERÍA ═══ -->
-  <section class="galeria" id="galeria">
-    <div class="section-title reveal">
-      <h2>Galería</h2>
-      <div class="line"></div>
-    </div>
-    <div class="carousel-container reveal">
-      <div class="carousel-track">
-        <div class="carousel-inner" id="carouselInner">
-          <div class="carousel-slide"><img src="img/galeria/foto1.jpg" alt="Galería 1"></div>
-          <div class="carousel-slide"><img src="img/galeria/foto2.jpg" alt="Galería 2"></div>
-          <div class="carousel-slide"><img src="img/galeria/foto3.jpg" alt="Galería 3"></div>
-          <div class="carousel-slide"><img src="img/galeria/foto4.jpg" alt="Galería 4"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Anterior">&#8592;</button>
-        <div class="carousel-dots" id="carouselDots">
-          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-          <button class="carousel-dot" onclick="goToSlide(1)"></button>
-          <button class="carousel-dot" onclick="goToSlide(2)"></button>
-          <button class="carousel-dot" onclick="goToSlide(3)"></button>
-        </div>
-        <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Siguiente">&#8594;</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CLUB DE MIEMBROS ═══ -->
-  <section class="club-section" id="club">
-    <div class="club-wrapper">
-      <div class="club-info reveal">
-        <div class="club-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Exclusivo para miembros
-        </div>
-        <h2>Únete al <span>Club Dermalysse</span></h2>
-        <p>Accede a cursos grabados, webinars en vivo, material descargable, certificados con QR verificable y una comunidad de profesionales en dermatología y estética.</p>
-        <div class="club-features">
-          <div class="club-feat">
-            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-            <span>Cursos grabados 24/7</span>
-          </div>
-          <div class="club-feat">
-            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-            <span>Webinars en vivo</span>
-          </div>
-          <div class="club-feat">
-            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <span>Material PDF descargable</span>
-          </div>
-          <div class="club-feat">
-            <div class="club-feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-            <span>Certificados con QR</span>
+    <section class="fashion-hero" id="inicio">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="issue-mark" aria-hidden="true"><span>VOL.</span><strong>01</strong><small>MMXXVI</small></div>
+      <div class="fashion-copy">
+        <p class="kicker hero-kicker">THE BEAUTY KNOWLEDGE CLUB</p>
+        <h1><span>La belleza</span><em>también</em><span>se estudia.</span></h1>
+        <div class="hero-bottom">
+          <p>Una membresía para mirar la piel con más criterio, sensibilidad y seguridad. Explora todo; empieza gratis.</p>
+          <div class="hero-actions">
+            <a class="fashion-button fashion-button--wine" href="#cursos">Descubrir el edit <span>↓</span></a>
+            <button class="text-action" type="button" data-preview><i>▶</i> Ver clase abierta</button>
           </div>
         </div>
-        <div class="club-actions">
-          <a href="https://club.dermalyssemx.com" target="_blank" class="club-btn-primary">
-            <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-            Entrar al Club
-          </a>
-        </div>
       </div>
-      <div class="club-visual reveal">
-        <div class="club-card-preview">
-          <div class="club-card-header">
-            <img src="img/logo.jpg" alt="Dermalysse" class="club-card-logo">
-            <h3>Club Dermalysse</h3>
-            <p>Membresía Premium</p>
-          </div>
-          <div class="club-card-stats">
-            <div class="club-card-stat"><strong>10+</strong><span>Cursos</span></div>
-            <div class="club-card-stat"><strong>En vivo</strong><span>Webinars</span></div>
-            <div class="club-card-stat"><strong>PDF</strong><span>Material</span></div>
-          </div>
-          <ul class="club-card-items">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Acceso ilimitado a todos los cursos</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Certificados con valor curricular</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Foro exclusivo de profesionales</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Herramientas clínicas interactivas</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>20% descuento en cursos online</li>
-          </ul>
+      <div class="hero-collage" aria-label="Editorial Dermalysse">
+        <div class="hero-photo hero-photo--main"><img src="img/fashion/fashion-hero.png" alt="Musa editorial Dermalysse vestida en marfil y vino" width="1024" height="1536"></div>
+        <div class="hero-photo hero-photo--detail"><img src="img/fashion/manchas.png" alt="Detalle editorial de piel natural" width="1024" height="1536"></div>
+        <div class="editorial-seal" aria-hidden="true"><span>THE</span><strong>SKIN</strong><em>EDIT</em></div>
+        <div class="hero-caption"><span>DERMALYSSE / 2026</span><small>Ciencia que se vuelve intuición.</small></div>
+      </div>
+      <a class="scroll-note" href="#editorial"><span>Scroll to discover</span><i>↓</i></a>
+    </section>
+
+    <section class="fashion-statement" id="editorial">
+      <div class="statement-orbit" aria-hidden="true"></div>
+      <p class="section-index">01 / MANIFIESTO</p>
+      <div class="statement-copy" data-reveal>
+        <p class="kicker">BEAUTY, BUT MAKE IT SMART</p>
+        <h2>No es solo <em>skincare.</em><br>Es criterio.</h2>
+        <p class="statement-lead">Dermalysse transforma conocimiento complejo en una práctica más consciente, elegante y humana.</p>
+      </div>
+      <div class="statement-side" data-reveal><span>OBSERVA</span><span>COMPRENDE</span><span>TRANSFORMA</span></div>
+      <div class="statement-monogram" aria-hidden="true">D</div>
+    </section>
+
+    <section class="course-edit" id="cursos">
+      <div class="edit-heading">
+        <div><p class="section-index">02 / FORMACIÓN</p><p class="kicker">CURATED FOR YOUR PRACTICE</p></div>
+        <h2 data-reveal>The course <em>edit.</em></h2>
+        <p data-reveal>Recorre cada temario y abre la primera clase. El conocimiento empieza antes de la membresía.</p>
+      </div>
+      <div class="editorial-grid">
+        <article class="course-card course-card--lead" data-reveal>
+          <div class="course-photo"><img src="img/fashion/piel-sin-cicatrices.png" alt="Retrato editorial afro-latino con textura natural de piel" width="1024" height="1536" loading="lazy"><span class="course-number">01</span><span class="free-tag">FREE FIRST CLASS</span></div>
+          <div class="course-meta"><p>Dermapen · Acné · Reparación</p><h3>Piel sin cicatrices</h3><button type="button" data-preview>Ver introducción <span>↗</span></button></div>
+        </article>
+        <article class="course-card course-card--blue" data-reveal>
+          <div class="course-photo"><img src="img/fashion/hidrafacial.png" alt="Tratamiento hidrafacial profesional en estudio azul" width="1024" height="1536" loading="lazy"><span class="course-number">02</span><span class="free-tag">FREE FIRST CLASS</span></div>
+          <div class="course-meta"><p>Protocolos · Cabina · Técnica</p><h3>Hidrafacial esencial</h3><button type="button" data-preview>Ver introducción <span>↗</span></button></div>
+        </article>
+        <article class="course-card course-card--wine" data-reveal>
+          <div class="course-photo"><img src="img/fashion/manchas.png" alt="Retrato editorial con pigmentación natural de la piel" width="1024" height="1536" loading="lazy"><span class="course-number">03</span><span class="free-tag">FREE FIRST CLASS</span></div>
+          <div class="course-meta"><p>Valoración · Activos · Seguimiento</p><h3>Manchas y discromías</h3><button type="button" data-preview>Ver introducción <span>↗</span></button></div>
+        </article>
+        <article class="course-card course-card--sage" data-reveal>
+          <div class="course-photo"><img src="img/fashion/cosmetica-natural.png" alt="Modelo editorial con sérum, aloe y cosmética natural" width="1024" height="1536" loading="lazy"><span class="course-number">04</span><span class="free-tag">FREE FIRST CLASS</span></div>
+          <div class="course-meta"><p>Formulación · Piel · Bienestar</p><h3>Cosmética natural</h3><button type="button" data-preview>Ver introducción <span>↗</span></button></div>
+        </article>
+      </div>
+      <a class="wide-link" href="#club"><span>Explorar toda la experiencia</span><i>→</i></a>
+    </section>
+
+    <section class="membership" id="club">
+      <div class="membership-copy">
+        <p class="section-index">03 / MEMBERS ONLY</p>
+        <p class="kicker">YOUR BEAUTY INTELLIGENCE ERA</p>
+        <h2 data-reveal>Tu práctica,<br><em>elevada.</em></h2>
+        <p data-reveal>Entra sin pagar. Mira cursos, materiales y herramientas. Cuando quieras avanzar, la membresía abre el resto de tu experiencia.</p>
+        <a class="fashion-button fashion-button--light" href="https://club.dermalyssemx.com" target="_blank" rel="noreferrer">Conocer el club <span>↗</span></a>
+      </div>
+      <div class="membership-look" data-reveal>
+        <div class="look-card look-card--image">
+          <img src="img/fashion/hidrafacial.png" alt="Clase de hidrafacial dentro del club" width="1024" height="1536" loading="lazy">
+          <div><span>NOW PLAYING</span><strong>Hidrafacial esencial</strong></div>
+          <button type="button" data-preview aria-label="Reproducir primera clase">▶</button>
         </div>
+        <div class="look-card look-card--access"><span class="access-pulse"></span><small>ACCESS STATUS</small><strong>Primera clase<br>desbloqueada</strong><p>Sin membresía · 14 min</p></div>
+        <div class="look-note"><i>✦</i><span>APRENDE<br>ANTES DE ELEGIR</span></div>
+      </div>
+    </section>
+
+    <section class="club-index">
+      <div class="club-index-head"><p class="section-index">04 / TODO EN UN LUGAR</p><h2 data-reveal>More than a club.<br><em>A beauty point of view.</em></h2></div>
+      <div class="benefit-list">
+        <div class="benefit-row" data-reveal><span>01</span><h3>Cursos on demand</h3><p>Aprende a tu ritmo</p><i>↗</i></div>
+        <div class="benefit-row" data-reveal><span>02</span><h3>Primera clase abierta</h3><p>Descubre antes de elegir</p><i>↗</i></div>
+        <div class="benefit-row" data-reveal><span>03</span><h3>Biblioteca clínica</h3><p>Protocolos y materiales</p><i>↗</i></div>
+        <div class="benefit-row" data-reveal><span>04</span><h3>Encuentros en vivo</h3><p>Nuevas voces, nuevas miradas</p><i>↗</i></div>
+        <div class="benefit-row" data-reveal><span>05</span><h3>Progreso y certificados</h3><p>Tu evolución documentada</p><i>↗</i></div>
+      </div>
+    </section>
+
+    <section class="final-fashion">
+      <div class="final-photo"><img src="img/fashion/fashion-hero.png" alt="Retrato editorial Dermalysse" width="1024" height="1536" loading="lazy"></div>
+      <div class="final-overlay"></div>
+      <div class="final-copy" data-reveal><p class="kicker">YOUR NEXT ERA STARTS HERE</p><h2>Conoce la piel.<br><em>Cambia tu práctica.</em></h2><a class="fashion-button fashion-button--light" href="https://club.dermalyssemx.com" target="_blank" rel="noreferrer">Entrar a Dermalysse <span>↗</span></a></div>
+      <span class="final-vertical">DERMALYSSE / BEAUTY INTELLIGENCE</span>
+    </section>
+
+    <footer class="fashion-footer">
+      <a class="official-logo official-logo--footer" href="#inicio" aria-label="Dermalysse, volver al inicio"><img src="img/logo-dermalysse.png" alt="Dermalysse" width="1254" height="1254" loading="lazy"></a>
+      <p>Consultoría en Dermatología &amp; Estética</p>
+      <div><a href="#cursos">Cursos</a><a href="#club">Club</a><a href="https://www.instagram.com/dermalysseconsulta" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+      <small>Dermalysse · 2026</small>
+    </footer>
+
+    <div class="preview-modal" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" hidden>
+      <div class="preview-shell">
+        <button class="preview-close" type="button" aria-label="Cerrar vista previa">×</button>
+        <div class="preview-heading"><p class="kicker">COMPLIMENTARY CLASS / 01</p><h2 id="preview-title">Tu primera clase,<br><em>on us.</em></h2><p>Explora el enfoque Dermalysse. El resto del curso se desbloquea con tu membresía.</p></div>
+        <video controls playsinline poster="img/fashion/preview-poster.jpg">
+          <source src="video/preview-fashion.mp4" type="video/mp4">
+          <track kind="captions" src="video/preview-captions.vtt" srclang="es" label="Español" default>
+        </video>
       </div>
     </div>
-  </section>
-
-  <!-- ═══ CONTACTO ═══ -->
-  <section class="contacto" id="contacto">
-    <div class="section-title reveal">
-      <h2>Contacto</h2>
-      <div class="line"></div>
-    </div>
-    <div class="contacto-wrapper reveal">
-      <p class="contacto-text">
-        "Tu piel merece la mejor atención.<br>Escríbenos y comienza tu transformación."
-      </p>
-      <div class="contacto-links">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/5212224718727?text=Hola%20Dermalysse%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n" target="_blank" class="contacto-btn contacto-btn--whatsapp">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--rosa-main)"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.11-1.14l-.29-.174-3.01.79.8-2.93-.19-.3A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z" fill="var(--rosa-main)"/></svg>
-          WhatsApp
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/dermalysseconsulta" target="_blank" class="contacto-btn">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--rosa-main)" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="var(--rosa-main)" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--rosa-main)"/></svg>
-          Instagram
-        </a>
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/profile.php?id=61581624870383" target="_blank" class="contacto-btn">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="var(--rosa-main)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Facebook
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ MODAL CURSO ═══ -->
-  <div class="modal-backdrop" id="cursoModal" onclick="closeModal(event)">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeModalDirect()">&times;</button>
-      <h3 class="modal-curso-name" id="modalCursoName"></h3>
-      <p class="modal-modalidad">Modalidad Online</p>
-      <div class="modal-features">
-        <div class="modal-feature">
-          <div class="modal-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="var(--rosa-main)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="16" rx="2" stroke="var(--rosa-main)" stroke-width="1.5"/></svg>
-          </div>
-          <span>Certificado con valor curricular</span>
-        </div>
-        <div class="modal-feature">
-          <div class="modal-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="var(--rosa-main)" stroke-width="1.5"/><path d="M3 9h18M9 3v18" stroke="var(--rosa-main)" stroke-width="1.5"/></svg>
-          </div>
-          <span>QR verificable</span>
-        </div>
-        <div class="modal-feature">
-          <div class="modal-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="var(--rosa-main)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <span>Folio único de registro</span>
-        </div>
-      </div>
-      <a id="modalWhatsapp" href="#" target="_blank" class="modal-inscribirse">Inscribirse</a>
-    </div>
-  </div>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <p>&copy; 2025 DERMALYSSE — Todos los derechos reservados · Diseñado por <a href="#">TEC CAPITAL</a></p>
-  </footer>
-
-  <!-- ═══ SCRIPTS ═══ -->
-  <script>
-    // ── Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // ── Mobile menu
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-      document.getElementById('hamburger').classList.toggle('active');
-    }
-
-    function closeMenu() {
-      document.getElementById('navLinks').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('active');
-    }
-
-    // ── Carousel
-    let currentSlide = 0;
-    const totalSlides = 4;
-    let autoPlay;
-
-    function updateCarousel() {
-      document.getElementById('carouselInner').style.transform = `translateX(-${currentSlide * 100}%)`;
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-
-    function moveCarousel(dir) {
-      currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-      updateCarousel();
-      resetAutoPlay();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-      resetAutoPlay();
-    }
-
-    function resetAutoPlay() {
-      clearInterval(autoPlay);
-      autoPlay = setInterval(() => moveCarousel(1), 4500);
-    }
-
-    resetAutoPlay();
-
-    // ── Touch/swipe support
-    let touchStartX = 0;
-    const track = document.querySelector('.carousel-track');
-    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-    track.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
-    });
-
-    // ── Modal de cursos
-    function openModal(cursoName) {
-      document.getElementById('modalCursoName').textContent = cursoName;
-      const msg = encodeURIComponent(`Hola Dermalysse, me gustaría inscribirme al curso de ${cursoName}`);
-      document.getElementById('modalWhatsapp').href = `https://wa.me/5212224718727?text=${msg}`;
-      document.getElementById('cursoModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(e) {
-      if (e.target === e.currentTarget) closeModalDirect();
-    }
-
-    function closeModalDirect() {
-      document.getElementById('cursoModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModalDirect();
-    });
-
-    // ── Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
+  </main>
 </body>
 </html>
